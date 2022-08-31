@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardBodys{
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+    
+
+}
+
+.cardInfo{
+    display: flex;
+    justify-content: center;
+    width: 110vh;
+    height: 75vh;   
+    border-radius: 8px;
+    
+    
+}
+
+.cartInfo{
+    width: 50vh;
+    height: 50vh;
+    border-radius: 8px;
+    margin-left: 10vh;
+}
+
+.cardInfoText{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.tableCard{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #E1E1E1;
+    border-radius: 8px;
+    width: 100vh;
+    height: 25vh;
+    margin-top: 2vh;
+    
+}
+
+
+.form-text{
+    height: 8vh;
+}
+
+.input-info{
+    width: 45vh;
+    height: 5vh;
+    padding: 8px 12px;
+    border-radius: 8px;
+
+}
+.expiration-date-info{
+    width: 20vh;
+    height: 5vh;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+ 
+}
+
+.card-date-cvv-info{
+    width: 20vh;
+    height: 5vh;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+}
+
+.formıtemInput{
+    margin-right: 2vh;
+}
+
+.cardInputsCol{
+    margin-top: 2vh;
+}
+
+.textareaInput{
+    width: 100vh;
+    height: 30vh;   
+}
+
+.agreement-form{
+    font-weight: 600; 
+    margin-top: 3vh;
+}
+
+
+
+
+
+
+
+
+
+

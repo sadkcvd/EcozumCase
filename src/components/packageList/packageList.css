@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardContainer{
+    width: 140vh;
+    height: 75vh;
+    border-radius: 8px;
+    
+}
+
+.packageAllBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+}
+
+.packageCard{
+    /* margin-bottom: 30px; */
+    width: 60vh;
+    height: 15vh;
+    
+}
+
+.cardBody{
+    display: flex;
+}
+
+.list-item{
+    width: 67vh;
+    display:inline-flex;
+    justify-content: space-around;
+}
+.cardImageCol{
+    width: 35%;
+    background: #C4C4C4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.cardImage{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+/* .imgText{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #929292;
+} */
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+    background: #F2F2F2;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    
+}
+
+.package-Name-Price-Row{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1vh;
+}
+
+.package-Name-Price{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color:#000000;
+}
+
+.detailListCol li{
+    display: flex; 
+    font-size: 11px;
+    margin-left: 5vh;
+    margin-top: 2vh;
+  
+}
+
+.tagListCol li{
+    display: flex;
+    font-size: 11px;
+    margin-left: 5vh;
+    margin-top: 2vh;
+
+  
+}
+
+.liTagList{
+    background-color: #C4C4C4;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.TotalPriceAndGo{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 4vh;
+}
+
+.packagebtn{  
+    
+    background: #1890FF;
+    color:white;
+    border-radius: 8px; 
+    margin-right: 4vh;
+}
+
+.totalprice{
+    font-size: 16px;
+}
+.price{
+    font-weight: 700;
+}
+
+.loading-text{
+    font-size: 25px;
+}
+
