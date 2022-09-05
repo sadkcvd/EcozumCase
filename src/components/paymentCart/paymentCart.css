@@ -1,0 +1,35 @@
+.cartInfo{
+    width: 50vh;
+    height: 40vh;
+    border-radius: 8px;
+    margin-left: 10vh;
+    
+}
+.cartMainRow{
+    display: flex;
+}
+
+.cartInPackage{
+    font-weight:500;
+}
+
+.packageInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    background: #F2F2F2;
+    border-radius: 8px;
+}
+.btnRow{
+    display: flex;
+    flex-direction: column;
+}
+.makePriceBtn{
+    display: flex;
+    justify-content: center;
+    background: #1890FF;
+    color:white;
+    border-radius: 8px; 
+    width: 100%;
+}

@@ -19,7 +19,6 @@
 }
 
 .packageCard{
-    /* margin-bottom: 30px; */
     width: 60vh;
     height: 15vh;
     
@@ -27,10 +26,12 @@
 
 .cardBody{
     display: flex;
+    justify-content: space-around;
 }
 
 .list-item{
-    width: 67vh;
+    width: 65vh;
+    height: 20vh;
     display:inline-flex;
     justify-content: space-around;
 }
@@ -77,6 +78,7 @@
     font-weight: 700;
     font-size: 15px;
     line-height: 22px;
+    margin-left: 2vh;
     color:#000000;
 }
 
@@ -84,7 +86,7 @@
     display: flex; 
     font-size: 11px;
     margin-left: 5vh;
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
   
 }
 
@@ -92,7 +94,7 @@
     display: flex;
     font-size: 11px;
     margin-left: 5vh;
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
 
   
 }
@@ -108,6 +110,7 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-left: 4vh;
+    margin-top: 4vh;
 }
 
 .packagebtn{  

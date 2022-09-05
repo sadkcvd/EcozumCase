@@ -1,39 +1,29 @@
 import React, { useState } from "react";
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Card, Row, Col } from 'antd';
-import { connect } from "react-redux";
-// import { Link } from 'react-router-dom';
+import { connect, useDispatch } from "react-redux";
 import { startLogin } from "../../redux/actions/loginActions";
-import { useNavigate } from 'react-router-dom';
-// import withRouter from "./withRouter";
-// import { Navigate } from 'react-router';
+import {useNavigate} from 'react-router-dom';
+
 import "./signScreen.css";
 
-const onFinish = values => {
-    console.log('Received values of form: ', values);
-};
-
 function SignScreen(props) {
+    
+    const dispatch = useDispatch()
 
-    const [state, setState] = useState({fullName: "" , email: ""});
-    // constructor() {
-    //     super();
-    // this.state = {
-    //     fullName: "",
-    //     email: ""
-    // };
-    // }
-    const handleChange = e => setState({ ...state, [e.target.name]: e.target.value });
+    const [signForm, setSignForm] = useState({ fullName: "", email: "" });
 
-    const navigate = useNavigate();   
+    const handleChange = e => setSignForm({ ...signForm, [e.target.name]: e.target.value });
+    
+    const navigate = useNavigate();
 
     const login = e => {
         e.preventDefault();
-        setState({ fullName: "", email: "" });
-        props.login(state);
-        props.navigate.push("/packagelist"); //push undefined.
+        dispatch(startLogin(signForm))
+        setSignForm({ fullName: "", email: "" });
+        navigate("/packagelist");
     };
-    // render() {
+
     return (
         <Row className='rowBody'>
             <Col className='signcol'>
@@ -45,17 +35,16 @@ function SignScreen(props) {
                         initialValues={{
                             remember: true,
                         }}
-                        onFinish={onFinish}
                     >
-                        {props.loggedIn ? "Logged in" : ""}
-                        {props.loginProcessing && !props.loggedIn ? "Logging.." : ""}
+                        
+                        {props.loginProcessing && !props.loggedIn ? console.log("Logging..") : ""}
+                        {props.loggedIn ? console.log("Logged in") : ""}
                         <Form.Item className='text-input' label="Adınız Soyadınız"  >
                             <Form.Item
                                 name="fullName"
 
                                 rules={[
-                                    {
-
+                                    {    
                                         required: true,
                                         message: 'Please input your Username!',
                                     },
@@ -63,7 +52,8 @@ function SignScreen(props) {
                                 ]}
                             >
                                 <Input className="site-form-input"
-                                    value={state.fullName}
+                                    name="fullName"
+                                    value={signForm.fullName}
                                     onChange={handleChange}
                                     prefix={<UserOutlined className="site-form-item-icon" />}
 
@@ -83,7 +73,8 @@ function SignScreen(props) {
                                 ]}
                             >
                                 <Input className="site-form-input"
-                                    value={state.email}
+                                    name="email"
+                                    value={signForm.email}
                                     onChange={handleChange}
                                     prefix={<MailOutlined className="site-form-item-icon" />}
 
@@ -94,9 +85,7 @@ function SignScreen(props) {
 
 
                             <Button onClick={login} type="primary" htmlType="submit" className="button-login-form-">
-                                {/* <Link to="/packagelist"> */}
                                 <span className='input-text-button'>Devam Et</span>
-                                {/* </Link> */}
                             </Button>
 
                         </Form.Item>
@@ -110,20 +99,13 @@ function SignScreen(props) {
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.loggedIn,
-        loginProcessing: state.loginProcessing,
-        // fullName: state.user.fullName,
-        // email: state.user.email
+        loggedIn: state.loginReducer.loggedIn,
+        loginProcessing: state.loginReducer.loginProcessing,
+        fullName: state.loginReducer.fullName
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        login: data => dispatch(startLogin(data))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignScreen);
+export default connect(mapStateToProps)(SignScreen);
 
 
 

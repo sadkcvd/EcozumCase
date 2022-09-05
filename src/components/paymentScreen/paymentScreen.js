@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Input, Row, Col, Form } from 'antd';
+import PaymentCart from "../paymentCart/paymentCart"
 import "./paymentScreen.css";
 
 const paymentScreen = () => {
@@ -7,8 +8,11 @@ const paymentScreen = () => {
         console.log('Received values of form: ', values);
     };
     return (
+        
         <div>
+
             <Row className='cardBodys'>
+                
                 <Col>
                     <Card className='cardInfo'>
                         <Form
@@ -108,9 +112,7 @@ const paymentScreen = () => {
                 </Col>
                 {/* SEPET */}
                 <Col>
-                    <Card className='cartInfo'>
-
-                    </Card>
+                    <PaymentCart/>
                 </Col>
             </Row>
 
