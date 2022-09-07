@@ -11,12 +11,14 @@
     
 
 }
-
+.ant-card-body{
+    height: auto;
+}
 .cardInfo{
     display: flex;
     justify-content: center;
-    width: 110vh;
-    height: 75vh;   
+    width: auto;
+    height: 81.7vh;   
     border-radius: 8px;
     
     
@@ -33,38 +35,41 @@
     border: 1px solid #E1E1E1;
     border-radius: 8px;
     width: 100vh;
-    height: 25vh;
+    height: 30vh;
     margin-top: 2vh;
-    
 }
 
 
 .form-text{
-    height: 8vh;
+    height: 9vh;
 }
 
 .input-info{
+    border-color: #E1E1E1;
+    border-style:solid;
     width: 45vh;
-    height: 5vh;
+    height: 6vh;
     padding: 8px 12px;
     border-radius: 8px;
 
 }
 .expiration-date-info{
     width: 20vh;
-    height: 5vh;
+    height: 6vh;
     padding: 8px 12px;
     border-radius: 8px;
-    
+    border-color: #E1E1E1;
+    border-style:solid;
  
 }
 
 .card-date-cvv-info{
     width: 20vh;
-    height: 5vh;
+    height: 6vh;
     padding: 8px 12px;
     border-radius: 8px;
-    
+    border-color: #E1E1E1;
+    border-style:solid;
 }
 
 .formıtemInput{
@@ -82,7 +87,8 @@
 
 .agreement-form{
     font-weight: 600; 
-    margin-top: 3vh;
+    margin-top: 2vh;
+    
 }
 
 

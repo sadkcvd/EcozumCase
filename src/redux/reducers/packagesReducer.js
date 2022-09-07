@@ -1,10 +1,5 @@
-// import * as actionTypes from "../actions/actionTypes"
-const initialState =
-    {
-        packages: [],
-        message: '',
-        isLoading: false,
-    };
+
+import initialState from './initialState';
 
 export default function packagesReducer(state = initialState, action) {
     switch (action.type) {

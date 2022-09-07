@@ -1,13 +1,5 @@
 // import * as actionTypes from "../actions/actionTypes"
-const initialState =
-{
-     
-        loggedIn: false,
-        loginProcessing: true,
-        fullName: '',
-    
-
-};
+import initialState from './initialState';
 
 export default function loginReducer(state = initialState, action) {
     switch (action.type) {
@@ -20,5 +12,4 @@ export default function loginReducer(state = initialState, action) {
     }
 };
 
-// export const valid = state => state.loginReducer.loggedIn;
 

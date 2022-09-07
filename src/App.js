@@ -3,6 +3,7 @@ import NavBar from "./components/navbar/navBar";
 import PackageList from "./components/packageList/packageList";
 import PaymentScreen from "./components/paymentScreen/paymentScreen";
 import SignScreen from "./components/signScreen/signScreen";
+import SuccessScreen from "./components/successScreen/successScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import {useSelector} from "react-redux";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<SignScreen />} />
           <Route path="/packagelist" element={<PackageList />} />
           <Route path="/paymentandcart" element={<PaymentScreen />} />
+          <Route path="/successcomp" element={<SuccessScreen/>} />
           <Route path="*" element={<p><strong>No such page found..!</strong></p>} />
         </Routes>
 

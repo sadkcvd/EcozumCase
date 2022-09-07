@@ -7,21 +7,27 @@ import {useNavigate} from 'react-router-dom';
 
 import "./signScreen.css";
 
+
 function SignScreen(props) {
     
     const dispatch = useDispatch()
 
     const [signForm, setSignForm] = useState({ fullName: "", email: "" });
 
-    const handleChange = e => setSignForm({ ...signForm, [e.target.name]: e.target.value });
-    
+    const handleChange = e =>  setSignForm({ ...signForm, [e.target.name]: e.target.value });
     const navigate = useNavigate();
 
     const login = e => {
         e.preventDefault();
-        dispatch(startLogin(signForm))
-        setSignForm({ fullName: "", email: "" });
-        navigate("/packagelist");
+        if(signForm.fullName.length < 8 || signForm.email.length < 8  ){
+            console.log("Yanlış veya eksik karakter tuşladınız, Minimum 8 karakter ile giriş yapınız.")
+        }
+        else{
+            dispatch(startLogin(signForm))
+            setSignForm({ fullName: "", email: "" });
+            navigate("/packagelist");
+        }
+        
     };
 
     return (
@@ -104,6 +110,8 @@ const mapStateToProps = state => {
         fullName: state.loginReducer.fullName
     };
 };
+
+
 
 export default connect(mapStateToProps)(SignScreen);
 

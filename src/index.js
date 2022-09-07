@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from './redux/configureStore';
+import "alertifyjs/build/css/alertify.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

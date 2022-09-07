@@ -6,8 +6,10 @@
 
 .cardContainer{
     width: 140vh;
-    height: 75vh;
+    height: auto;
     border-radius: 8px;
+    margin-top: 5vh;
+    
     
 }
 
@@ -15,18 +17,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 88vh;
+    height: auto;
 }
 
 .packageCard{
     width: 60vh;
     height: 15vh;
-    
 }
-
+.packageCard-clicked{
+    width: 60vh;
+    height: 15vh;
+    border-radius: 10px;
+    border: 2px solid   green;
+}
+.ant-card-body{
+    height: auto;
+}
 .cardBody{
     display: flex;
     justify-content: space-around;
+  
 }
 
 .list-item{
@@ -35,6 +45,7 @@
     display:inline-flex;
     justify-content: space-around;
 }
+
 .cardImageCol{
     width: 35%;
     background: #C4C4C4;

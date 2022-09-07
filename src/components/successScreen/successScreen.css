@@ -1,0 +1,41 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.allBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+}
+
+.successCard{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 65vh;
+    height: 45vh;
+    border-radius: 8px;
+}
+
+.succesText{
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 3vh;
+}
+
+.success-icon>svg{
+    color: #009C10;
+    width: 15vh;
+    height: 15vh;
+    margin-top: 5vh;    
+}
+
+.row-icon{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
