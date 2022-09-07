@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import axios from 'axios';
 import Cleave from "cleave.js/react";
-import { Card, Input, Row, Col, Form } from 'antd';
-import PaymentCart from "../paymentCart/paymentCart"
+import { Card, Input, Row, Col, Form, Button } from 'antd';
+// import PaymentCart from "../paymentCart/paymentCart";
+import { Link } from 'react-router-dom';
+import { connect, useDispatch } from "react-redux";
+import { startPayment } from "../../redux/actions/paymentActions";
+import { useNavigate } from 'react-router-dom';
 import "./paymentScreen.css";
 
-const PaymentScreen = () => {
+const PaymentScreen = (props) => {
 
     // const [agreementForm, setAgreementForm] = useState("Lorem ipsum dolor sit amet");
     // useEffect(() => {
@@ -18,6 +22,19 @@ const PaymentScreen = () => {
     //             console.log(err);
     //         })
     // }, [])
+    const dispatch = useDispatch()
+
+    const [paymentForm, setPaymentForm] = useState({ cardHolderName: "", cardNumber: "", expireDate: "", cvv: "" });
+
+    const handleChange = e => setPaymentForm({ ...paymentForm, [e.target.name]: e.target.value });
+    const navigate = useNavigate();
+
+    const paymentComp = e => {
+        e.preventDefault();
+        dispatch(startPayment(paymentForm))
+        setPaymentForm({ cardHolderName: "", cardNumber: "", expireDate: "", cvv: "" });
+        navigate("/successcomp");
+    };
     const agreementForm = decodeURIComponent(`{"content":"%3Cp%3E%C3%96deme%20s%C3%B6zle%C5%9Fmesi.%3C%2Fp%3E"}`);
 
     return (
@@ -44,38 +61,49 @@ const PaymentScreen = () => {
                             <Row className='tableCard'>
 
                                 <Col className='cardInputsCol'>
-
+                                    {props.pending && !props.successpay ? console.log("Payment Loading..") : ""}
+                                    {props.successpay ? console.log("Payment Completed") : ""}
                                     <Form.Item className='form-text' label="Kart Üzerindeki İsim Soyisim"  >
                                         <Form.Item
-                                            name="name-surname"
+                                            name="cardHolderName"
                                             rules={[
                                                 {
                                                     required: true,
                                                     message: 'Please input your Name and Surname',
                                                 },
                                             ]}>
-                                                <Cleave className="input-info" 
-                                                options={{blocks: [24] }}/>
-                                            {/* <Input className="input-info" type="text" /> */}
+                                            <Cleave className="input-info"
+                                                value={paymentForm.cardHolderName}
+                                                onChange={handleChange}
+                                                options={{ blocks: [24], delimiter: '' }}
+                                            />
+                                            {/* <Input className="input-info"
+                                                 type="text"
+                                                value={paymentForm.cardHolderName}
+                                                onChange={handleChange}/> */}
                                         </Form.Item>
                                     </Form.Item>
                                     <Row>
                                         <Form.Item className='formıtemInput' label="Kart Numarası"  >
                                             <Form.Item
-                                                name="card-number"
-                                                
+                                                name="cardNumber"
+
                                                 rules={[
                                                     {
                                                         required: true,
                                                         message: 'Please input your Card Number',
                                                     },
                                                 ]}>
-                                                <Cleave
-                                                    className="input-info"
-                                                    
+                                                <Cleave className="input-info"
+                                                    name='cardNumber'
+                                                    value={paymentForm.cardNumber}
+                                                    onChange={handleChange}
                                                     options={{ delimiter: '-', blocks: [4, 4, 4, 4], numericOnly: true }}
                                                 />
-                                                {/* <Input className="input-info" type="text" /> */}
+                                                {/* <Input className="input-info"
+                                                     type="text"
+                                                     value={paymentForm.cardNumber}
+                                                     onChange={handleChange}/> */}
                                             </Form.Item>
                                         </Form.Item>
 
@@ -88,40 +116,48 @@ const PaymentScreen = () => {
                                                         message: 'Please input Date',
                                                     },
                                                 ]}>
-                                                    <Cleave
+                                                <Cleave
                                                     className="expiration-date-info"
-                                                    
-                                                    options={{ 
+                                                    value={paymentForm.expireDate}
+                                                    onChange={handleChange}
+                                                    options={{
                                                         delimiter: '/',
-                                                        blocks: [2,2],
+                                                        blocks: [2, 2],
                                                         numericOnly: true,
                                                         date: true,
                                                         datePattern: ['d', 'm', 'Y']
-                                                        }}
+                                                    }}
                                                 />
-                                                {/* <Input className="expiration-date-info" type="text" /> */}
+                                                {/* <Input className="expiration-date-info"
+                                                    type="text"
+                                                    value={paymentForm.expireDate}
+                                                    onChange={handleChange} /> */}
                                             </Form.Item>
                                         </Form.Item>
 
                                         <Form.Item className='formıtemInput' label="CVV/CVC"  >
                                             <Form.Item
                                                 name="card-cvv-cvc"
-                                                
+
                                                 rules={[
                                                     {
-                                                        required: true,                                                     
+                                                        required: true,
                                                         message: 'Input Card CVV/CVC',
                                                     },
                                                 ]}
                                             >
-                                                <Cleave className="card-date-cvv-info"
-                                                options={{
-                                                    blocks: [4],
-                                                    numericOnly: true,
-                                                    
-                                                }}
-                                                />
-                                                {/* <Input className="card-date-cvv-info" type="password" maxLength={4} /> */}
+                                                {/* <Cleave className="card-date-cvv-info"
+                                                    options={{
+                                                        blocks: [4],
+                                                        numericOnly: true,
+
+                                                    }}
+                                                /> */}
+                                                <Input className="card-date-cvv-info"
+                                                    type="password"
+                                                    value={paymentForm.cvv}
+                                                    onChange={handleChange}
+                                                    maxLength={4} />
                                             </Form.Item>
                                         </Form.Item>
                                     </Row>
@@ -148,7 +184,31 @@ const PaymentScreen = () => {
                 </Col>
                 {/* SEPET */}
                 <Col>
-                    <PaymentCart />
+                    <div>
+                        <Card className='cartInfo'>
+                            <Row>
+                                <span className="cartInPackage">Sepetteki Paketler</span>
+                            </Row>
+                            {props.cartList.map(cartItem => (
+                                <Row key={cartItem.packages.id} className="packageInfo">
+                                    <Col>
+                                        {cartItem.packages.name}
+                                    </Col>
+                                    <Col className="package-Name-Price">
+                                        {cartItem.packages.amount}{cartItem.packages.currency}
+                                    </Col>
+                                    {/* {
+                                    props.cartList.length > 0 ? renderSummary() : renderEmpty()
+                                    } */}
+                                </Row>
+                            ))}
+                            <Row className="btnRow">
+                                <Button className="makePriceBtn" onClick={paymentComp}>
+                                <span>Ödeme Yap</span>
+                                </Button>
+                            </Row>
+                        </Card>
+                    </div>
                 </Col>
             </Row>
 
@@ -156,4 +216,15 @@ const PaymentScreen = () => {
     )
 }
 
-export default PaymentScreen;
+const mapStateToProps = state => {
+    return {
+        cartList: state.cartReducer,
+        cardNumber: state.paymentReducer.cardNumber,
+        pending: state.paymentReducer.pending,
+        successpay: state.paymentReducer.successpay,
+        cardNumber: state.paymentReducer.cardNumber
+
+    };
+};
+
+export default connect(mapStateToProps)(PaymentScreen);

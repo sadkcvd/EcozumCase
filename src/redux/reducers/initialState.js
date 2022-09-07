@@ -6,7 +6,7 @@ export default {
     packages: [],
     message: '',
     isLoading: false,
-    cardNumber: "",
+    cardNumber: 0,
     pending:true,
     successpay:false
         

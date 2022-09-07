@@ -9,7 +9,7 @@ export const startLogin = (user) => {
     dispatch({ type: "LOGINPROCESSING" });
     await axios.post(loginURL,user)
       .then(() => dispatch({ type: "LOGIN", payload: user.fullName }))
-      .then( res => console.log(res)) 
+      .then( res => console.log(res))
       .catch(error => dispatch(console.log(error)))
   }
 };

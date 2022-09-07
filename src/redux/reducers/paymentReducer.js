@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-export default function packagesReducer(state = initialState, action) {
+export default function paymentReducer(state = initialState, action) {
     switch (action.type) {
         case "PAYMENT_PENDİNG":   
             return { ...state, pending: true};     

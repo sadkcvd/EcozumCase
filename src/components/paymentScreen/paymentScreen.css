@@ -91,6 +91,47 @@
     
 }
 
+.cartInfo{
+    width: 50vh;
+    height: auto;
+    border-radius: 8px;
+    margin-left: 10vh;
+    
+}
+.package-Name-Price{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    margin-left: 2vh;
+    color:#000000;
+}
+
+.cartInPackage{
+    font-weight:500;
+    margin-bottom: 2vh;
+}
+
+.packageInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    background: #F2F2F2;
+    border-radius: 8px;
+    margin-bottom: 2vh ;
+}
+.btnRow{
+    display: flex;
+    flex-direction: column;
+}
+.makePriceBtn{
+    display: flex;
+    justify-content: center;
+    background: #1890FF;
+    color:white;
+    border-radius: 8px; 
+    width: 100%;
+}
 
 
 

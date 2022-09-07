@@ -7,9 +7,9 @@ export const startPayment = (pay) => {
     console.log(pay)
     return async (dispatch)  => {
     dispatch({ type: "PAYMENT_PENDİNG" })
-    await axios.post(paymentURL,pay)
+    await axios.post(paymentURL)
         .then(() => dispatch({ type: "PAYMENT_SUCCES", payload: pay.cardNumber }))
-        .then( res => console.log(res)) 
+        .then( response => console.log(response)) 
         .catch(error => dispatch(console.log(error)))
 }
 };
