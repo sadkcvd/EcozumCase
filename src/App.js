@@ -1,42 +1,42 @@
 import "./App.css"
-import NavBar from "./components/navbar/navBar";
-import PackageList from "./components/packageList/packageList";
-import PaymentScreen from "./components/paymentScreen/paymentScreen";
-import SignScreen from "./components/signScreen/signScreen";
-import SuccessScreen from "./components/successScreen/successScreen";
+import NavBar from "./components/Navbar/Navbar";
+import PackageList from "./components/PackageList/PackageList";
+import PaymentScreen from "./components/PaymentScreen/PaymentScreen";
+import SignScreen from "./components/SignScreen/SignScreen";
+import SuccessScreen from "./components/SuccessScreen/SuccessScreen";
+import WrongPage from "./components/WrongPage/WrongPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import Protected from "./Protected";
+
 
 function App() {
 
-      const isLogin = useSelector(state => state.loginReducer.loggedIn)
+  const isLoggedIn = useSelector(state => state.loginReducer.loggedIn)
 
   return (
     <BrowserRouter>
 
       <div className="body">
-        
-        {isLogin && <NavBar />}
-        
+        {isLoggedIn && <NavBar />}
         <Routes>
-          <Route path="/" element={<SignScreen />} />
-          <Route path="/packagelist" element={<PackageList />} />
-          <Route path="/paymentandcart" element={<PaymentScreen />} />
-          <Route path="/successcomp" element={<SuccessScreen/>} />
-          <Route path="*" element={<p><strong>No such page found..!</strong></p>} />
-        </Routes>
+            <Route path="/sign" element={<SignScreen />} />
+            <Route path="*" element={<WrongPage />} />
 
-        {/* <NavBar/> */}
-        {/* <PaymentScreen/> */}
-        {/* <SignScreen /> */}
-        {/* <PackageList/> */}
+          <Route element={<Protected isLoggedIn={isLoggedIn} />}>
+              <Route path="/" element={<PackageList/>} />
+              <Route path="/paymentandcart" element={<PaymentScreen />} />
+              <Route path="/successcomp" element={<SuccessScreen />} />      
+          </Route>
+          
+        </Routes>
 
       </div>
     </BrowserRouter>
 
   );
- 
+
 }
 
- export default App;
+export default App;

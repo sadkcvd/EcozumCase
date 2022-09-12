@@ -1,4 +1,4 @@
-import "./navBar.css"
+import "./Navbar.css"
 import React from 'react'
 import { Row, Col, Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
@@ -19,9 +19,7 @@ function NavBar(props) {
         />
       </Col>
       <Col className="rightBar" span={12}>
-
         <span className="userInfo"><UserOutlined className="navbar-icon" />{props.fullName}</span>
-
       </Col>
     </Row>
   )

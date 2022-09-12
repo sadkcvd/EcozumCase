@@ -8,9 +8,7 @@
     width: 140vh;
     height: auto;
     border-radius: 8px;
-    margin-top: 5vh;
-    
-    
+    margin-top: 5vh;   
 }
 
 .packageAllBody{
@@ -24,19 +22,21 @@
     width: 60vh;
     height: 15vh;
 }
+
 .packageCard-clicked{
     width: 60vh;
     height: 15vh;
     border-radius: 10px;
     border: 2px solid   green;
 }
+
 .ant-card-body{
     height: auto;
 }
+
 .cardBody{
     display: flex;
     justify-content: space-around;
-  
 }
 
 .list-item{
@@ -61,12 +61,7 @@
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-/* .imgText{
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 22px;
-    color: #929292;
-} */
+
 .cardContent{
     display: flex;
     flex-direction: column;
@@ -75,8 +70,7 @@
     width: 65%;
     background: #F2F2F2;
     border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    
+    border-bottom-right-radius: 8px;  
 }
 
 .package-Name-Price-Row{
@@ -97,17 +91,12 @@
     display: flex; 
     font-size: 11px;
     margin-left: 5vh;
-    /* margin-top: 2vh; */
-  
 }
 
 .tagListCol li{
     display: flex;
     font-size: 11px;
     margin-left: 5vh;
-    /* margin-top: 2vh; */
-
-  
 }
 
 .liTagList{
@@ -135,6 +124,7 @@
 .totalprice{
     font-size: 16px;
 }
+
 .price{
     font-weight: 700;
 }

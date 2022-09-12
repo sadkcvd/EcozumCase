@@ -1,4 +1,3 @@
-
 import initialState from './initialState';
 
 export default function packagesReducer(state = initialState, action) {

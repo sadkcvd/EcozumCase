@@ -1,8 +1,8 @@
 import { Card, List, Row, Col, Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import './packageList.css'
+import './PackageList.css'
 import React, { useEffect, useState } from "react";
-import { connect} from "react-redux";
+import { connect } from "react-redux";
 import * as packagesActions from "../../redux/actions/packagesActions";
 import * as cartActions from "../../redux/actions/cartActions";
 import { Link } from 'react-router-dom';
@@ -14,31 +14,41 @@ function PackageList(props) {
     useEffect(() => {
         props.actions.getPackagesApiRequest();
         /* eslint-disable */
-    }, []);
+    }, [PackageList]);
 
+     
     const [style, setStyle] = useState("packageCard");
     const [totalPrice, setTotalPrice] = useState(0);
 
+    // const cartItem = ()=> {
+    //     props.cartList[0].packages.id === packages.id
+    // }
+    
+
     const addToCart = (packages) => {
-        props.actions.addToCart({packages})
-        setStyle("packageCard-clicked");
-        setTotalPrice(totalPrice + packages.amount)
-        alertify.success(packages.name + " Added to cart")
+        // if(props.cartList[0].packages.id === packages.id){
+
+            props.actions.addToCart({ packages })
+            props.cartList && setStyle("packageCard-clicked")
+            console.log(props.cartList)   
+            console.log(packages.id) 
+            setTotalPrice(totalPrice + packages.amount)
+            alertify.success(packages.name + " Added to cart")
+        // }
+        // else{
+        //     console.log("error")
+        // }
         
     }
-    // const packageTotalPrice = (totalPrice) => {
-    //     props.actions.packageTotalPrice({totalPrice})
-    // }
-
     return (
-
+        
         <Row className='packageAllBody'>
             <Card className='cardContainer'>
-                <Row className='cardBody'>  
+                <Row className='cardBody'>
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
                             <List.Item key={index} className="list-item"  >
-                                <Row className={style} onClick={()=> addToCart(packages)} color="success">
+                                <Row className={style} onClick={() => addToCart(packages)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
@@ -78,10 +88,8 @@ function PackageList(props) {
                                     </Col>
                                 </Row>
                             </List.Item>
-
                         ))}
                 </Row>
-
                 <Row className='TotalPriceAndGo'>
                     <Col>
                         <span className='totalprice'>Seçilen Paket Tutarı :</span><span className='price'>{totalPrice}</span>
@@ -92,31 +100,26 @@ function PackageList(props) {
                         </Button>
                     </Col>
                 </Row>
-
             </Card>
         </Row >
-
-
-
     );
 }
-
 
 function mapStateToProps(state) {
     return {
         packages: state.packagesReducer.packages,
         isLoading: state.packagesReducer.isLoading,
+        cartList: state.cartReducer,
+        loggedIn: state.loginReducer.loggedIn
     };
 };
 function mapDispatchToProps(dispatch) {
     return {
         actions: {
-            addToCart:bindActionCreators(cartActions.addToCart, dispatch),
-            getPackagesApiRequest:bindActionCreators(packagesActions.getPackagesApiRequest, dispatch),
-            // packageTotalPrice:bindActionCreators(cartActions.packageTotalPrice, dispatch),
-            
+            addToCart: bindActionCreators(cartActions.addToCart, dispatch),
+            getPackagesApiRequest: bindActionCreators(packagesActions.getPackagesApiRequest, dispatch),
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(PackageList);
+export default connect(mapStateToProps, mapDispatchToProps)(PackageList);
 

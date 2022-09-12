@@ -71,6 +71,15 @@
     border-color: #E1E1E1;
     border-style:solid;
 }
+.card-date-cvv-info:focus{
+    width: 20vh;
+    height: 6vh;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px;
+    border-color: black;
+    border-style:solid;
+}
 
 .formıtemInput{
     margin-right: 2vh;
@@ -80,12 +89,13 @@
     margin-top: 2vh;
 }
 
-.textareaInput{
+.agreement-form{
     width: 100vh;
-    height: 30vh;   
+    height: 30vh;  
+    border: solid 1px #E1E1E1 ;
 }
 
-.agreement-form{
+.agreement-form-title{
     font-weight: 600; 
     margin-top: 2vh;
     

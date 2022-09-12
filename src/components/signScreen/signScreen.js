@@ -3,9 +3,9 @@ import { MailOutlined, UserOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Card, Row, Col } from 'antd';
 import { connect, useDispatch } from "react-redux";
 import { startLogin } from "../../redux/actions/loginActions";
-import {useNavigate} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
-import "./signScreen.css";
+import "./SignScreen.css";
 
 
 function SignScreen(props) {
@@ -15,7 +15,6 @@ function SignScreen(props) {
     const [signForm, setSignForm] = useState({ fullName: "", email: "" });
 
     const handleChange = e =>  setSignForm({ ...signForm, [e.target.name]: e.target.value });
-    const navigate = useNavigate();
 
     const login = e => {
         e.preventDefault();
@@ -23,12 +22,13 @@ function SignScreen(props) {
             console.log("Yanlış veya eksik karakter tuşladınız, Minimum 8 karakter ile giriş yapınız.")
         }
         else{
-            dispatch(startLogin(signForm))
+            dispatch(startLogin(signForm));
             setSignForm({ fullName: "", email: "" });
-            navigate("/packagelist");
-        }
-        
-    };
+        }};
+
+        if(props.loggedIn) {
+            return <Navigate to="/"/>
+            } 
 
     return (
         <Row className='rowBody'>
@@ -42,9 +42,8 @@ function SignScreen(props) {
                             remember: true,
                         }}
                     >
-                        
-                        {props.loginProcessing && !props.loggedIn ? console.log("Logging..") : ""}
-                        {props.loggedIn ? console.log("Logged in") : ""}
+                        {/* {props.loginProcessing && !props.loggedIn ? console.log("Logging..") : ""}
+                        {props.loggedIn ? console.log("Logged in") : ""} */}
                         <Form.Item className='text-input' label="Adınız Soyadınız"  >
                             <Form.Item
                                 name="fullName"
@@ -101,7 +100,6 @@ function SignScreen(props) {
         </Row>
     );
 };
-// };
 
 const mapStateToProps = state => {
     return {
@@ -110,8 +108,6 @@ const mapStateToProps = state => {
         fullName: state.loginReducer.fullName
     };
 };
-
-
 
 export default connect(mapStateToProps)(SignScreen);
 
