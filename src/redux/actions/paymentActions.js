@@ -9,7 +9,7 @@ export const startPayment = (pay) => {
     dispatch({ type: "PAYMENT_PENDİNG" })
     await axios.post(paymentURL)
         .then(() => dispatch({ type: "PAYMENT_SUCCES", payload: pay.cardNumber }))
-        .then( response => console.log(response)) 
+        // .then( response => console.log(response)) 
         .catch(error => dispatch(console.log(error)))
 }
 };

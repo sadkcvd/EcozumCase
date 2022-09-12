@@ -16,29 +16,19 @@ function PackageList(props) {
         /* eslint-disable */
     }, [PackageList]);
 
-     
-    const [style, setStyle] = useState("packageCard");
     const [totalPrice, setTotalPrice] = useState(0);
+    const [selectedPackages, setSelectedPackages] = useState([]);
 
-    // const cartItem = ()=> {
-    //     props.cartList[0].packages.id === packages.id
-    // }
-    
-
-    const addToCart = (packages) => {
-        // if(props.cartList[0].packages.id === packages.id){
-
+    const addToCart = (packages, idx) => {
+            if(!selectedPackages.includes(idx)){
+                setSelectedPackages(prev =>[...prev, idx])
+            }
+            else{
+                setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== idx))
+            }
             props.actions.addToCart({ packages })
-            props.cartList && setStyle("packageCard-clicked")
-            console.log(props.cartList)   
-            console.log(packages.id) 
             setTotalPrice(totalPrice + packages.amount)
-            alertify.success(packages.name + " Added to cart")
-        // }
-        // else{
-        //     console.log("error")
-        // }
-        
+            alertify.success(packages.name + " Added to cart")      
     }
     return (
         
@@ -48,7 +38,7 @@ function PackageList(props) {
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
                             <List.Item key={index} className="list-item"  >
-                                <Row className={style} onClick={() => addToCart(packages)} color="success">
+                                <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addToCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>

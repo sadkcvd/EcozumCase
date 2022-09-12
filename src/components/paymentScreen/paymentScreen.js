@@ -20,7 +20,7 @@ const PaymentScreen = (props) => {
             .catch(() => {
                 console.log("error");
             })
-    }, [PaymentScreen])
+    }, [])
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -58,8 +58,8 @@ const PaymentScreen = (props) => {
                         </Row>
                         <Row className='tableCard'>
                             <Col className='cardInputsCol'>
-                                {props.pending && !props.successpay ? console.log("Payment Loading..") : ""}
-                                {props.successpay ? console.log("Payment Completed") : ""}
+                                {/* {props.pending && !props.successpay ? console.log("Payment Loading..") : ""}
+                                {props.successpay ? console.log("Payment Completed") : ""} */}
                                 <Form.Item className='form-text' label="Kart Üzerindeki İsim Soyisim"  >
                                     <Form.Item
                                         name="cardHolderName"
@@ -184,7 +184,6 @@ const mapStateToProps = state => {
         cardNumber: state.paymentReducer.cardNumber,
         pending: state.paymentReducer.pending,
         successpay: state.paymentReducer.successpay,
-        cardNumber: state.paymentReducer.cardNumber
 
     };
 };
