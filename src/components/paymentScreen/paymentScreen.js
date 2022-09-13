@@ -30,7 +30,7 @@ const PaymentScreen = (props) => {
 
     const paymentComp = e => {
         e.preventDefault();
-        if (paymentForm.cardHolderName.length < 8 || paymentForm.cardNumber.length < 16 || paymentForm.expireDate.length < 10 || paymentForm.cvv.length < 4) {
+        if (paymentForm.cardHolderName.length < 8 || paymentForm.cardNumber.length < 16 || paymentForm.expireDate.length < 10 || paymentForm.cvv.length < 3) {
             console.log("Yanlış veya eksik karakter tuşladınız. Kart üzerinde ki İsim Soyisim minimum 8 karakter olmalıdır.")
         }
         else {

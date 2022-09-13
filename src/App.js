@@ -1,9 +1,9 @@
 import "./App.css"
-import NavBar from "./components/Navbar/Navbar";
-import PackageList from "./components/PackageList/PackageList";
-import PaymentScreen from "./components/PaymentScreen/PaymentScreen";
-import SignScreen from "./components/SignScreen/SignScreen";
-import SuccessScreen from "./components/SuccessScreen/SuccessScreen";
+import NavBar from "./components/navbar/navBar";
+import PackageList from "./components/packageList/packageList";
+import PaymentScreen from "./components/paymentScreen/paymentScreen";
+import SignScreen from "./components/signScreen/signScreen";
+import SuccessScreen from "./components/successScreen/successScreen";
 import WrongPage from "./components/WrongPage/WrongPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
