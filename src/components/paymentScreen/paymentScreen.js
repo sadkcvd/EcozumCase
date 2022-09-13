@@ -136,7 +136,7 @@ const PaymentScreen = (props) => {
                                                 type="password"
                                                 value={paymentForm.cvv}
                                                 onChange={handleChange}
-                                                maxLength={4} />
+                                                maxLength={3} />
                                         </Form.Item>
                                     </Form.Item>
                                 </Row>
@@ -159,7 +159,7 @@ const PaymentScreen = (props) => {
                     </Row>
                     {props.cartList.map(cartItem => (
                         <Row key={cartItem.packages.id} className="packageInfo">
-                            <Col className='package-Name-Price'>
+                            <Col className='package-Cart-Name'>
                                 {cartItem.packages.name}
                             </Col>
                             <Col className="package-Name-Price">

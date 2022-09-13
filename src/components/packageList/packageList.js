@@ -20,18 +20,22 @@ function PackageList(props) {
     const [selectedPackages, setSelectedPackages] = useState([]);
 
     const addToCart = (packages, idx) => {
-            if(!selectedPackages.includes(idx)){
-                setSelectedPackages(prev =>[...prev, idx])
-            }
-            else{
-                setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== idx))
-            }
-            props.actions.addToCart({ packages })
-            setTotalPrice(totalPrice + packages.amount)
-            alertify.success(packages.name + " Added to cart")      
+
+        if (!selectedPackages.includes(idx))
+        { 
+            setSelectedPackages(prev => [...prev, idx]) 
+        }
+        else 
+        {
+             setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== idx)) 
+        }
+
+        props.actions.addToCart({ packages })
+        setTotalPrice(totalPrice + packages.amount)
+        alertify.success(packages.name + " Added to cart")
     }
     return (
-        
+
         <Row className='packageAllBody'>
             <Card className='cardContainer'>
                 <Row className='cardBody'>
@@ -39,13 +43,13 @@ function PackageList(props) {
                         : props.packages.map((packages, index) => (
                             <List.Item key={index} className="list-item"  >
                                 <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addToCart(packages, index)} color="success">
-                                    <Col className='cardImageCol' >
+                                    <Col  className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
-                                    <Col className='cardContent'>
+                                    <Col  className='cardContent'>
                                         <Row className="package-Name-Price-Row">
                                             <Col className='package-Name'>
-                                                {packages.name}  
+                                                {packages.name}
                                             </Col>
                                             <Col className='package-Price'>
                                                 {packages.amount}{packages.currency}

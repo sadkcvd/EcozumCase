@@ -8,8 +8,6 @@
     display: flex;
     justify-content: center;
     margin-top: 6vh;
-    
-
 }
 .ant-card-body{
     height: auto;
@@ -112,11 +110,15 @@
     font-weight: 700;
     font-size: 15px;
     line-height: 22px;
-    margin-left: 2vh;
     margin-right: 2vh;
     color:#000000;
 }
-
+.package-Cart-Name{
+    font-size: 15px;
+    line-height: 22px;
+    margin-left: 2vh;
+    color:#000000;
+}
 .cartInPackage{
     font-weight:500;
     margin-bottom: 2vh;
