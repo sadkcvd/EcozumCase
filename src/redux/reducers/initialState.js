@@ -1,4 +1,4 @@
-export default {
+/* eslint-disable */ export default {
     loggedIn: true,
     loginProcessing: true,
     fullName: '',
