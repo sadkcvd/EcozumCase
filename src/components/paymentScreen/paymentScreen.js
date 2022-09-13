@@ -159,7 +159,7 @@ const PaymentScreen = (props) => {
                     </Row>
                     {props.cartList.map(cartItem => (
                         <Row key={cartItem.packages.id} className="packageInfo">
-                            <Col>
+                            <Col className='package-Name-Price'>
                                 {cartItem.packages.name}
                             </Col>
                             <Col className="package-Name-Price">

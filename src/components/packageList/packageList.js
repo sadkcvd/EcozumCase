@@ -43,11 +43,11 @@ function PackageList(props) {
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
                                     <Col className='cardContent'>
-                                        <Row className='package-Name-Price-Row'>
-                                            <Col className='package-Name-Price'>
-                                                {packages.name}
+                                        <Row className="package-Name-Price-Row">
+                                            <Col className='package-Name'>
+                                                {packages.name}  
                                             </Col>
-                                            <Col className='package-Name-Price'>
+                                            <Col className='package-Price'>
                                                 {packages.amount}{packages.currency}
                                             </Col>
 
