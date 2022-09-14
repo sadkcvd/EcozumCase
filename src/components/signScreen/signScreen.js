@@ -5,7 +5,7 @@ import { connect, useDispatch } from "react-redux";
 import { startLogin } from "../../redux/actions/loginActions";
 import {Navigate} from 'react-router-dom';
 
-import "./SignScreen.css";
+import "./signScreen.css";
 
 
 function SignScreen(props) {

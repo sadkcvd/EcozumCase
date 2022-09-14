@@ -5,7 +5,9 @@ import { Card, Row, Col, Form, Button, Input } from 'antd';
 import { connect, useDispatch } from "react-redux";
 import { startPayment } from "../../redux/actions/paymentActions";
 import { useNavigate } from 'react-router-dom';
-import "./PaymentScreen.css";
+import * as cartActions from "../../redux/actions/cartActions";
+import { bindActionCreators } from 'redux';
+import "./paymentScreen.css";
 
 const PaymentScreen = (props) => {
     
@@ -159,6 +161,7 @@ const PaymentScreen = (props) => {
                     </Row>
                     {props.cartList.map(cartItem => (
                         <Row key={cartItem.packages.id} className="packageInfo">
+                            {/* <Button onClick={()=> props.actions.removeFromCart(cartItem.packages)}>-</Button> */}
                             <Col className='package-Cart-Name'>
                                 {cartItem.packages.name}
                             </Col>
@@ -187,5 +190,12 @@ const mapStateToProps = state => {
 
     };
 };
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: {
+            removeFromCart: bindActionCreators(cartActions.removeFromCart, dispatch),
+        }
+    }
+}
 
-export default connect(mapStateToProps)(PaymentScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentScreen);

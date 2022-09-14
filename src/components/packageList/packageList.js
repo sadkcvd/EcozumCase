@@ -1,6 +1,6 @@
 import { Card, List, Row, Col, Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import './PackageList.css'
+import './packageList.css'
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as packagesActions from "../../redux/actions/packagesActions";
@@ -19,20 +19,30 @@ function PackageList(props) {
     const [totalPrice, setTotalPrice] = useState(0);
     const [selectedPackages, setSelectedPackages] = useState([]);
 
-    const addToCart = (packages, idx) => {
+    
 
-        if (!selectedPackages.includes(idx))
+    const addAndRemoveCart = (packages, id) => {
+
+        const itemToDelete = props.cartList.map(cartItem => {
+           cartItem.packages.id = id ;
+        })
+
+        if (!selectedPackages.includes(id))
         { 
-            setSelectedPackages(prev => [...prev, idx]) 
+            setSelectedPackages(prev => [...prev, id]) 
+            props.actions.addToCart({ packages })
+            setTotalPrice(totalPrice + packages.amount)
+            alertify.success(packages.name + " Added to cart")
         }
+        
         else 
         {
-             setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== idx)) 
+            setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== id))
+            props.actions.removeFromCart({ itemToDelete })
+            setTotalPrice(totalPrice - packages.amount)
+            alertify.error(packages.name + " Remove from cart")
         }
-
-        props.actions.addToCart({ packages })
-        setTotalPrice(totalPrice + packages.amount)
-        alertify.success(packages.name + " Added to cart")
+        console.log(props.cartList);
     }
     return (
 
@@ -42,7 +52,7 @@ function PackageList(props) {
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
                             <List.Item key={index} className="list-item"  >
-                                <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addToCart(packages, index)} color="success">
+                                <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addAndRemoveCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
@@ -111,6 +121,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: {
             addToCart: bindActionCreators(cartActions.addToCart, dispatch),
+            removeFromCart: bindActionCreators(cartActions.removeFromCart, dispatch),
             getPackagesApiRequest: bindActionCreators(packagesActions.getPackagesApiRequest, dispatch),
         }
     }

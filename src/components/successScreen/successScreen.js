@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SuccessScreen.css";
+import "./successScreen.css";
 import { Card, Row } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 

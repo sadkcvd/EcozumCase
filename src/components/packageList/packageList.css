@@ -20,11 +20,12 @@
 
 .packageCard{
     width: 60vh;
+    border: 2px solid transparent;
 }
 
 .packageCard-clicked{
     width: 60vh;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 2px solid green;
 }
 

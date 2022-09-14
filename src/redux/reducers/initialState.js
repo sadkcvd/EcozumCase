@@ -1,5 +1,5 @@
 /* eslint-disable */ export default {
-    loggedIn: false,
+    loggedIn: true,
     loginProcessing: true,
     fullName: '',
     cartList : [],
