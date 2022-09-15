@@ -42,6 +42,7 @@ const PaymentScreen = (props) => {
         }
 
     };
+    console.log(props.cartList)
 
     return (
         <Row className='cardBodys'>
@@ -161,7 +162,7 @@ const PaymentScreen = (props) => {
                     </Row>
                     {props.cartList.map(cartItem => (
                         <Row key={cartItem.packages.id} className="packageInfo">
-                            {/* <Button onClick={()=> props.actions.removeFromCart(cartItem.packages)}>-</Button> */}
+                            <Button onClick={()=> props.actions.removeFromCart(cartItem.packages)}>-</Button>
                             <Col className='package-Cart-Name'>
                                 {cartItem.packages.name}
                             </Col>
@@ -171,9 +172,11 @@ const PaymentScreen = (props) => {
                         </Row>
                     ))}
                     <Row className="btnRow">
+                    {props.cartList.length > 0 ? 
                         <Button className="makePriceBtn" onClick={paymentComp}>
-                            <span>Ödeme Yap</span>
+                            <span>Ödeme Yap</span> 
                         </Button>
+                    : <Button disabled>Sepet Boş</Button>}
                     </Row>
                 </Card>
             </Col>

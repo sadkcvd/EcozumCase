@@ -5,8 +5,8 @@ export function addToCart(cartItem){
     return { type: actionTypes.ADD_TO_CART, payload: cartItem }
 }
 
-export function removeFromCart(packages){
-    return { type: actionTypes.REMOVE_FROM_CART, payload: packages}
+export function removeFromCart(payloadObj){
+    return { type: actionTypes.REMOVE_FROM_CART, payload: {id: payloadObj.id}}
 }
 
 

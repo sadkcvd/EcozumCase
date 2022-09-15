@@ -19,30 +19,24 @@ function PackageList(props) {
     const [totalPrice, setTotalPrice] = useState(0);
     const [selectedPackages, setSelectedPackages] = useState([]);
 
-    
 
     const addAndRemoveCart = (packages, id) => {
 
-        const itemToDelete = props.cartList.map(cartItem => {
-           cartItem.packages.id = id ;
-        })
-
         if (!selectedPackages.includes(id))
-        { 
-            setSelectedPackages(prev => [...prev, id]) 
+        {
+            setSelectedPackages(prev => [...prev, id])
             props.actions.addToCart({ packages })
             setTotalPrice(totalPrice + packages.amount)
             alertify.success(packages.name + " Added to cart")
         }
-        
-        else 
+        else
         {
-            setSelectedPackages(prev => selectedPackages.filter(spackages => spackages !== id))
-            props.actions.removeFromCart({ itemToDelete })
+            setSelectedPackages(prev => prev.filter(packageId => packageId !== id));
+            props.actions.removeFromCart({id: packages.id});
             setTotalPrice(totalPrice - packages.amount)
             alertify.error(packages.name + " Remove from cart")
         }
-        console.log(props.cartList);
+        // console.log("CartList", props.cartList);
     }
     return (
 
