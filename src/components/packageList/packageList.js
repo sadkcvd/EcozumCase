@@ -23,7 +23,7 @@ function PackageList(props) {
           message: `${name} Remove from cart`,
           description:"",
         });
-      };
+      };    
 
     useEffect(() => {
         props.actions.getPackagesApiRequest();
@@ -59,12 +59,13 @@ function PackageList(props) {
                 <Row className='cardBody'>
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
-                            <List.Item key={index} className="list-item">
+                            <Col xs={24} md={12} lg={12} key={index}>
+                                <List.Item className="list-item">
                                 <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addAndRemoveCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
-                                    <Col className='cardContent'>
+                                    <Col className='cardContentCol'>
                                         <Row className="package-Name-Price-Row">
                                             <Col className='package-Name'>
                                                 {packages.name}
@@ -99,7 +100,8 @@ function PackageList(props) {
                                         </Row>
                                     </Col>
                                 </Row>
-                            </List.Item>
+                                </List.Item>
+                                </Col>
                         ))}
                 </Row>
                 <Row className='TotalPriceAndGo'>

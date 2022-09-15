@@ -5,7 +5,7 @@
 }
 
 .cardContainer{
-    width: 140vh;
+    width: 65%;
     height: auto;
     border-radius: 8px;
     margin-top: 5vh;   
@@ -19,12 +19,13 @@
 }
 
 .packageCard{
-    width: 60vh;
+    width: 85%;
+    /* height: 100%; */
     border: 2px solid transparent;
 }
 
 .packageCard-clicked{
-    width: 60vh;
+    width: 75%;
     border-radius: 10px;
     border: 2px solid green;
 }
@@ -39,14 +40,15 @@
 }
 
 .list-item{
-    width: 65vh;
-    height: 20vh;
+    /* width: 100%;
+    height: 100%; */
     display:inline-flex;
     justify-content: space-around;
 }
 
 .cardImageCol{
-    width: 35%;
+    width:35%;
+    height: auto;
     background: #C4C4C4;
     display: flex;
     flex-direction: column;
@@ -57,17 +59,18 @@
 }
 .cardImage{
     width: 100%; 
-    height: 100%;   
+    height: auto;   
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
-.cardContent{
+.cardContentCol{
     display: flex;
     flex-direction: column;
     /* justify-content: space-around;   */
     align-items: center;
     width: 65%;
+    height: auto;
     background: #F2F2F2;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;  
@@ -81,6 +84,7 @@
     font-size: 15px;
     font-weight: 700;
     margin-right: 15vh;
+    margin-bottom: 2vh;
 }
 .package-Price{
     font-size: 15px;
@@ -90,6 +94,7 @@
 .detailListCol li{
     font-size: 11px;
     margin-left: 6vh;
+    margin-bottom: 2vh;
 }
 
 .tagListCol li{
