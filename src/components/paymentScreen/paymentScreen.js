@@ -42,7 +42,7 @@ const PaymentScreen = (props) => {
         }
 
     };
-    console.log(props.cartList)
+    // console.log(props.cartList)
 
     return (
         <Row className='cardBodys'>

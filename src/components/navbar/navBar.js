@@ -1,4 +1,4 @@
-import "./Navbar.css"
+import "./navBar.css"
 import React from 'react'
 import { Row, Col, Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';

@@ -1,4 +1,4 @@
-import { Card, List, Row, Col, Button } from 'antd';
+import { Card, List, Row, Col, Button, notification} from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import './packageList.css'
 import React, { useEffect, useState } from "react";
@@ -7,9 +7,23 @@ import * as packagesActions from "../../redux/actions/packagesActions";
 import * as cartActions from "../../redux/actions/cartActions";
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import alertify from 'alertifyjs';
 
 function PackageList(props) {
+
+
+    const addedNotification = (name) => {
+        notification.success({
+          message: `${name} Added to cart`,
+          description:"",
+        });
+      };
+
+      const removedNotification = (name) => {
+        notification.error({
+          message: `${name} Remove from cart`,
+          description:"",
+        });
+      };
 
     useEffect(() => {
         props.actions.getPackagesApiRequest();
@@ -20,22 +34,22 @@ function PackageList(props) {
     const [selectedPackages, setSelectedPackages] = useState([]);
 
 
-    const addAndRemoveCart = (packages, id) => {
+    const addAndRemoveCart = (packages, idx) => {
 
-        if (!selectedPackages.includes(id))
+        if (!selectedPackages.includes(idx))
         {
-            setSelectedPackages(prev => [...prev, id])
-            props.actions.addToCart({ packages })
-            setTotalPrice(totalPrice + packages.amount)
-            alertify.success(packages.name + " Added to cart")
+            setSelectedPackages(prev => [...prev, idx]);
+            props.actions.addToCart({ packages });
+            setTotalPrice(totalPrice + packages.amount);
+            addedNotification(packages.name);
         }
         else
         {
-            setSelectedPackages(prev => prev.filter(packageId => packageId !== id));
+            setSelectedPackages(prev => prev.filter(packageId => packageId !== idx));
             props.actions.removeFromCart({id: packages.id});
-            setTotalPrice(totalPrice - packages.amount)
-            alertify.error(packages.name + " Remove from cart")
-        }
+            setTotalPrice(totalPrice - packages.amount);
+            removedNotification(packages.name);
+        }   
         // console.log("CartList", props.cartList);
     }
     return (
@@ -45,7 +59,7 @@ function PackageList(props) {
                 <Row className='cardBody'>
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
-                            <List.Item key={index} className="list-item"  >
+                            <List.Item key={index} className="list-item">
                                 <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addAndRemoveCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
