@@ -56,16 +56,17 @@ function PackageList(props) {
 
         <Row className='packageAllBody'>
             <Card className='cardContainer'>
-                <Row className='cardBody'>
+                <Row gutter={16} className='cardBody'>
                     {props.isLoading ? <span className='loading-text'>Loading<LoadingOutlined /></span>
                         : props.packages.map((packages, index) => (
-                            <Col xs={24} md={12} lg={12} key={index}>
+                            <Col xs={24} xl={12} xxl={8} key={index}>
                                 <List.Item className="list-item">
                                 <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addAndRemoveCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
                                     <Col className='cardContentCol'>
+                                        <Col className='content'>
                                         <Row className="package-Name-Price-Row">
                                             <Col className='package-Name'>
                                                 {packages.name}
@@ -98,6 +99,7 @@ function PackageList(props) {
                                                 </Col>
                                             ))}
                                         </Row>
+                                    </Col>
                                     </Col>
                                 </Row>
                                 </List.Item>
