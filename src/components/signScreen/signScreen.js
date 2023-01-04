@@ -40,8 +40,7 @@ function SignScreen(props) {
                         layout='vertical'
                         initialValues={{
                             remember: true,
-                        }}
-                    >
+                        }}>
                         {/* {props.loginProcessing && !props.loggedIn ? console.log("Logging..") : ""}
                         {props.loggedIn ? console.log("Logged in") : ""} */}
                         <Form.Item className='text-input' label="Adınız Soyadınız"  >
@@ -49,50 +48,34 @@ function SignScreen(props) {
                                 name="fullName"
 
                                 rules={[
-                                    {    
-                                        required: true,
-                                        message: 'Please input your Username!',
-                                    },
-
-                                ]}
-                            >
+                                    { required: true, message: 'Please input your Username!' },
+                                ]}>
                                 <Input className="site-form-input"
                                     name="fullName"
                                     value={signForm.fullName}
                                     onChange={handleChange}
                                     prefix={<UserOutlined className="site-form-item-icon" />}
-
                                 />
                             </Form.Item>
                         </Form.Item>
                         <Form.Item className='text-input' label="E-mail Adresiniz"  >
                             <Form.Item
                                 name="email"
-
                                 rules={[
-                                    {
-                                        type: "email",
-                                        required: true,
-                                        message: 'Please input your E-Mail!',
-                                    },
-                                ]}
-                            >
+                                    { type: "email", required: true, message: 'Please input your E-Mail!'},
+                                ]}>
                                 <Input className="site-form-input"
                                     name="email"
                                     value={signForm.email}
                                     onChange={handleChange}
                                     prefix={<MailOutlined className="site-form-item-icon" />}
-
                                 />
                             </Form.Item>
                         </Form.Item>
                         <Form.Item>
-
-
                             <Button onClick={login} type="primary" htmlType="submit" className="button-login-form-">
                                 <span className='input-text-button'>Devam Et</span>
                             </Button>
-
                         </Form.Item>
                     </Form>
                 </Card>
