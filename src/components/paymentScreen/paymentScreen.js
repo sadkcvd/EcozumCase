@@ -85,8 +85,7 @@ const PaymentScreen = (props) => {
                                                 name='cardNumber'
                                                 value={paymentForm.cardNumber}
                                                 onChange={handleChange}
-                                                options={{ delimiter: '-', blocks: [4, 4, 4, 4], numericOnly: true }}
-                                            />
+                                                options={{ delimiter: '-', blocks: [4, 4, 4, 4], numericOnly: true }} />
                                         </Form.Item>
                                     </Form.Item>
                                     <Form.Item className='formıtemInput' label="Son Kul.Tar."  >
@@ -105,8 +104,7 @@ const PaymentScreen = (props) => {
                                                     blocks: [2, 2],
                                                     numericOnly: true,
                                                     date: true,
-                                                    datePattern: ['d', 'm', 'Y']
-                                                }}/>
+                                                    datePattern: ['d', 'm', 'Y'] }} />
                                         </Form.Item>
                                     </Form.Item>
                                     <Form.Item className='formıtemInput' label="CVV/CVC"  >
