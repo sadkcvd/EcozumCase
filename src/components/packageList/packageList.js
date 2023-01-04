@@ -33,7 +33,6 @@ function PackageList(props) {
     const [totalPrice, setTotalPrice] = useState(0);
     const [selectedPackages, setSelectedPackages] = useState([]);
 
-
     const addAndRemoveCart = (packages, idx) => {
 
         if (!selectedPackages.includes(idx))
@@ -74,17 +73,13 @@ function PackageList(props) {
                                             <Col className='package-Price'>
                                                 {packages.amount}{packages.currency}
                                             </Col>
-
                                         </Row>
                                         <Row>
                                             {packages.details.map((detail) => (
                                                 <Col key={detail} className='detailListCol'>
                                                     <ul>
-                                                        <li>
-                                                            {detail}
-                                                        </li>
+                                                        <li>{detail}</li>
                                                     </ul>
-
                                                 </Col>
                                             ))}
                                         </Row>
@@ -92,9 +87,7 @@ function PackageList(props) {
                                             {packages.tags.map((tag) => (
                                                 <Col key={tag} className='tagListCol'>
                                                     <ul>
-                                                        <li className='liTagList'>
-                                                            {tag}
-                                                        </li>
+                                                        <li className='liTagList'>{tag}</li>
                                                     </ul>
                                                 </Col>
                                             ))}
