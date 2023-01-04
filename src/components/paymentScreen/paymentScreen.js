@@ -40,10 +40,8 @@ const PaymentScreen = (props) => {
             setPaymentForm({ cardHolderName: "", cardNumber: "", expireDate: "", cvv: "" });
             navigate("/successcomp");
         }
-
     };
     // console.log(props.cartList)
-
     return (
         <Row className='cardBodys'>
             <Col>
@@ -173,7 +171,6 @@ const mapStateToProps = state => {
         cardNumber: state.paymentReducer.cardNumber,
         pending: state.paymentReducer.pending,
         successpay: state.paymentReducer.successpay,
-
     };
 };
 function mapDispatchToProps(dispatch) {
