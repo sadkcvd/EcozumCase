@@ -7,6 +7,7 @@ function SuccesScreen() {
   return (
     <div>
       <Row className='allBody'>
+    
         <Card className='successCard'>
           <Row className='row-icon'>
           <CheckCircleOutlined className="success-icon" />
@@ -14,8 +15,8 @@ function SuccesScreen() {
           <Row>
           <p className='succesText'>Başarıyla Tamamlandı !</p>
           </Row>
-        
         </Card>
+    
       </Row>
     </div>
   )
