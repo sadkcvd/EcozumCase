@@ -33,7 +33,7 @@ const PaymentScreen = (props) => {
     const paymentComp = e => {
         e.preventDefault();
         if (paymentForm.cardHolderName.length < 8 || paymentForm.cardNumber.length < 16 || paymentForm.expireDate.length < 10 || paymentForm.cvv.length < 3) {
-            console.log("Yanlış veya eksik karakter tuşladınız. Kart üzerinde ki İsim Soyisim minimum 8 karakter olmalıdır.")
+            console.log("You keyed in an incorrect or missing character. Name and Surname on the card must be at least 8 characters.")
         }
         else {
             dispatch(startPayment(paymentForm))
@@ -54,8 +54,7 @@ const PaymentScreen = (props) => {
                         layout='vertical'
                         initialValues={{
                             remember: true,
-                        }}
-                    >
+                        }}>
                         <Row className='cardInfoText'>
                             <span>Kart Bilgileri</span>
                         </Row>
@@ -67,10 +66,7 @@ const PaymentScreen = (props) => {
                                     <Form.Item
                                         name="cardHolderName"
                                         rules={[
-                                            {
-                                                required: true,
-                                                message: 'Please input your Name and Surname',
-                                            },
+                                            { required: true, message: 'Please input your Name and Surname' },
                                         ]}>
                                         <Cleave className="input-info"
                                             name="cardHolderName"
@@ -85,10 +81,7 @@ const PaymentScreen = (props) => {
                                         <Form.Item
                                             name="cardNumber"
                                             rules={[
-                                                {
-                                                    required: true,
-                                                    message: 'Please input your Card Number',
-                                                },
+                                                { required: true, message: 'Please input your Card Number' },
                                             ]}>
                                             <Cleave className="input-info"
                                                 name='cardNumber'
@@ -102,10 +95,7 @@ const PaymentScreen = (props) => {
                                         <Form.Item
                                             name="card-expiration-date"
                                             rules={[
-                                                {
-                                                    required: true,
-                                                    message: 'Please input Date',
-                                                },
+                                                { required: true, message: 'Please input Date' },
                                             ]}>
                                             <Cleave
                                                 name="expireDate"
@@ -118,22 +108,15 @@ const PaymentScreen = (props) => {
                                                     numericOnly: true,
                                                     date: true,
                                                     datePattern: ['d', 'm', 'Y']
-                                                }}
-                                            />
+                                                }}/>
                                         </Form.Item>
                                     </Form.Item>
-
                                     <Form.Item className='formıtemInput' label="CVV/CVC"  >
                                         <Form.Item
                                             name="card-cvv-cvc"
-
                                             rules={[
-                                                {
-                                                    required: true,
-                                                    message: 'Input Card CVV/CVC',
-                                                },
-                                            ]}
-                                        >
+                                                { required: true, message: 'Input Card CVV/CVC' },
+                                            ]}>
                                             <Input className="card-date-cvv-info"
                                                 name="cvv"
                                                 type="password"
@@ -145,7 +128,7 @@ const PaymentScreen = (props) => {
                                 </Row>
                             </Col>
                         </Row>
-                        {/* SÖZLEŞME */}
+                        {/* Agreement */}
                         <Form.Item className='agreement-form-title' label="Sözleşme"  >
                             <Row className="agreement-form">
                                 <p dangerouslySetInnerHTML={{ __html: agreementForm }} />
@@ -154,7 +137,7 @@ const PaymentScreen = (props) => {
                     </Form>
                 </Card>
             </Col>
-            {/* SEPET */}
+            {/* CART */}
             <Col>
                 <Card className='cartInfo'>
                     <Row>
