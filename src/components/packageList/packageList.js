@@ -60,7 +60,11 @@ function PackageList(props) {
                         : props.packages.map((packages, index) => (
                             <Col xs={24} xl={12} xxl={8} key={index}>
                                 <List.Item className="list-item">
-                                <Row className={selectedPackages.includes(index) ? "packageCard-clicked" : "packageCard"} onClick={() => addAndRemoveCart(packages, index)} color="success">
+                                <Row className={
+                                    selectedPackages.includes(index) ?
+                                    "packageCard-clicked" :
+                                    "packageCard"} 
+                                    onClick={() => addAndRemoveCart(packages, index)} color="success">
                                     <Col className='cardImageCol' >
                                         <img className='cardImage' src={packages.imagePath} alt="img" />
                                     </Col>
