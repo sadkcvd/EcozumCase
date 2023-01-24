@@ -1,13 +1,13 @@
 Interview project with React & Redux - State Managment Middleware Redux-Thunk 
 
-SUMMARY
+#SUMMARY
 
 The user, whose full name and e-mail address is received, can pay by selecting the packages they want from the packages screen.
 performs the operation and sees the result screen.
 
 
-Sign Screen  -
-Post Request
+#Sign Screen  -
+#Post Request
 
 {
  "fullName": "string",
@@ -15,8 +15,8 @@ Post Request
 }
 
 
-Packages Screen -
-Get Request
+#Packages Screen -
+#Get Request
 
 [
  {
@@ -31,8 +31,8 @@ Get Request
 ]
 
 
-Payment Screen -
-Post Request
+#Payment Screen -
+#Post Request
 
 {
  "packageIds": ["id","id"],
@@ -44,8 +44,8 @@ Post Request
 }
 
 
-Result Screen -
-Get Request
+#Result Screen -
+#Get Request
 
 {
  "content": "decoded html string"
