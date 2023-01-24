@@ -1,4 +1,4 @@
-Interview project with React & Redux - State Managment Middleware Redux-Thunk 
+# Interview project with React & Redux - State Managment Middleware Redux-Thunk 
 
 # SUMMARY
 
@@ -6,8 +6,7 @@ The user, whose full name and e-mail address is received, can pay by selecting t
 performs the operation and sees the result screen.
 
 
-# Sign Screen  -
-# Post Request
+# Sign Screen  - Post Request
 
 {
  "fullName": "string",
@@ -15,8 +14,7 @@ performs the operation and sees the result screen.
 }
 
 
-# Packages Screen -
-# Get Request
+# Packages Screen - Get Request
 
 [
  {
@@ -31,8 +29,7 @@ performs the operation and sees the result screen.
 ]
 
 
-# Payment Screen -
-# Post Request
+# Payment Screen - Post Request
 
 {
  "packageIds": ["id","id"],
@@ -44,8 +41,7 @@ performs the operation and sees the result screen.
 }
 
 
-# Result Screen -
-# Get Request
+# Result Screen - Get Request
 
 {
  "content": "decoded html string"
