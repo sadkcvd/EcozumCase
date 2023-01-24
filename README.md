@@ -1,4 +1,5 @@
-# Interview project with React & Redux - State Managment Middleware Redux-Thunk 
+# Interview project with React & Redux
+# State Managment Middleware Redux-Thunk 
 
 # SUMMARY
 
